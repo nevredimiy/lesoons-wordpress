@@ -23,16 +23,7 @@
 						?>
 					</div>
 					<div class="col-sm-6">
-						
-						<?php 
-						my_var_dump(get_theme_mods());
-						shoper_social_media( 'top-bar-socials' );
-							// wp_nav_menu( array(
-							// 	'theme_location' => 'social_menu',
-							// 	'container_class' => 'social-icons pull-right',
-							// 	'menu_class' => 'nav navbar-nav',
-							// ) );
-						?>
+						<a href="<?= 'shoper_social_url_window' ?>"><?= get_theme_mod( 'shoper_social_links_window' ); ?></a>
 					</div>
 				</div>
 			</div>
