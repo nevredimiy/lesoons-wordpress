@@ -35,18 +35,18 @@ function shoper_general_main_post() {
 
     if ( $main_post_id ) {
         $main_post = get_post( $main_post_id );
-        $main_post_title = ! empty( $main_post ) ? $main_post->post_title : '';
     }
-
+    $main_post_title = ! empty( $main_post ) ? $main_post->post_title : '';
+    
     echo '<input type="text" id="main_post" class="regular-text">';
     
     echo '<p class="description" id="main_post_title">';
-    if( $main_post_title ) {
-        echo '<strong>' . __('Post selected:', 'shoper') . '</strong>' . $main_post_title . '<button class="button delete-main-post"><span class="dashicons dashicons-trash"></span></button>';
-    }
-    echo '</p>';
-    
-    echo '<input type="hidden" id="main_post_id" name="main_post" value="<?php echo $main_post_id; ?>">';
+    if ( $main_post_title ) {
+		echo '<strong>' . __( 'Post selected: ', 'mundana' ) . '</strong>' . $main_post_title . ' <button class="button delete-main-post"><span class="dashicons dashicons-trash"></span></button>';
+	}
+	echo '</p>';
+
+	echo '<input type="hidden" id="main_post_id" name="main_post" value="' . $main_post_id . '">';
    
 }
 

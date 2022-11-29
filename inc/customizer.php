@@ -31,6 +31,29 @@ function shoper_customize_register( $wp_customize ) {
 			)
 		);
 	}
+/*
+** Social Media =====
+*/
+
+$wp_customize->add_section( 'shoper_social_links' , array(
+	'title'      => __('Social Links', 'shoper'),
+	'priority'   => 10,
+) );
+
+$wp_customize->add_setting( 'shoper_social_links_window' , array(
+    'default'   => '#000000',
+    'transport' => 'refresh',
+) );
+
+$wp_customize->add_control( 'shoper_social_links_window', array(
+	'label'      => __('Label Social Links', 'shoper'),
+	'section'    => 'shoper_social_links',
+	'settings'   => 'shoper_social_links_window',
+	'type'			=> 'select',
+	'priority'	=> 1,
+) );
+	
+
 }
 add_action( 'customize_register', 'shoper_customize_register' );
 

@@ -23,12 +23,15 @@
 						?>
 					</div>
 					<div class="col-sm-6">
+						
 						<?php 
-							wp_nav_menu( array(
-								'theme_location' => 'social_menu',
-								'container_class' => 'social-icons pull-right',
-								'menu_class' => 'nav navbar-nav',
-							) );
+						my_var_dump(get_theme_mods());
+						shoper_social_media( 'top-bar-socials' );
+							// wp_nav_menu( array(
+							// 	'theme_location' => 'social_menu',
+							// 	'container_class' => 'social-icons pull-right',
+							// 	'menu_class' => 'nav navbar-nav',
+							// ) );
 						?>
 					</div>
 				</div>

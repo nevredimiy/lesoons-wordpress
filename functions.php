@@ -1,7 +1,7 @@
 <?php
 
 function my_var_dump( $data ) {
-	echo '<pre>' . var_dump($data) . '</pre>';
+	echo '<pre>' . print_r( $data, 1 ) . '</pre>';
 }
 
 /**
@@ -133,6 +133,18 @@ add_action( 'after_setup_theme', 'shoper_content_width', 0 );
 function shoper_widgets_init() {
 	register_sidebar(
 		array(
+			'name'          => esc_html__( 'Social links', 'shoper' ),
+			'id'            => 'social_link',
+			'description'   => esc_html__( 'Add widgets for social icons.', 'shoper' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+
+	register_sidebar(
+		array(
 			'name'          => esc_html__( 'Sidebar', 'shoper' ),
 			'id'            => 'sidebar-1',
 			'description'   => esc_html__( 'Add widgets here.', 'shoper' ),
@@ -144,6 +156,8 @@ function shoper_widgets_init() {
 	);
 }
 add_action( 'widgets_init', 'shoper_widgets_init' );
+
+
 
 /**
  * Enqueue scripts and styles.
@@ -168,6 +182,11 @@ function shoper_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'shoper_scripts' );
 
+
+
+
+
+
 /**
  * Implement the Custom Header feature.
  */
@@ -187,6 +206,7 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/customizer-defaults.php';
 
 /**
  * Load Jetpack compatibility file.
@@ -213,3 +233,4 @@ require get_template_directory() . '/inc/Shoper_Menu.php';
 *	Menu Admin function
 */
 require get_template_directory() . '/inc/admin-function.php';
+
