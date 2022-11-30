@@ -10,6 +10,13 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
+
+ $shoper_default = array(
+	'shoper_social_media_icon_1' => '',
+	'shoper_social_media_url_1' => '',
+ );
+
+
 function shoper_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
@@ -35,6 +42,7 @@ function shoper_customize_register( $wp_customize ) {
 ** Social Media =====
 */
 // Social Icons Array
+
 $social_icons = array(
 	'facebook' 				=> 'Facebook 1',
 	'facebook-official'		=> 'Facebook 2',
@@ -105,49 +113,57 @@ $social_icons = array(
 	'credit-card' 			=> 'Credit Card',
 );
 
-$wp_customize->add_section( 'shoper_social_links' , array(
-	'title'      => __('Social Links', 'shoper'),
+function shoper_add_select( $section, $id, $transport, $name, $choices, $priority ) {
+	global $wp_customize;	
+	$wp_customize->add_setting( $section . '_' . $id, array(
+		'default' => '',
+		'transport' => $transport,
+	));
+
+	$wp_customize->add_control( $section . '_' . $id, array(
+		'label' => $name,
+		'section' => $section,
+		'priority' => 'select',
+		'type' => 'select',
+		'choices' => $choices
+	) );
+}
+
+function shoper_add_url( $section, $id, $transport, $name, $priority ) {
+	global $wp_customize;	
+	$wp_customize->add_setting( $section . '_' . $id, array(
+		'default' => '',
+		'transport' => $transport,
+	));
+
+	$wp_customize->add_control( $section . '_' . $id, array(
+		'label' => $name,
+		'section' => $section,
+		'priority' => 'select',
+	) );
+}
+
+$wp_customize->add_section( 'shoper_social_media' , array(
+	'title'      => __('Social Media', 'shoper'),
 	'priority'   => 9,
 ) );
 
-$wp_customize->add_setting( 'shoper_social_links_window' , array(
-    'default'   => 'facebook',
-    'transport' => 'refresh',
-	//'type'		 => 'option',
-	//'capability' => 'edit_theme_options',
-	//'sanitize_callback' => 'ashe_sanitize_select'
-) );
+shoper_add_select( 'shoper_social_media', 'icon_1', 'refresh', __('Select Social Icon #1', 'shoper'), $social_icons, 10 );
+shoper_add_url( 'shoper_social_media', 'url_1', 'refresh', __('URL #1 (required)', 'shoper'), 1 );	
 
-$wp_customize->add_control( 'shoper_social_links_window', array(
-	'label'     => __('Label Social Links', 'shoper'),
-	'section'   => 'shoper_social_links',
-	//'settings'  => 'shoper_social_links_window',
-	'type'		=> 'select',
-	'choices' 	=> $social_icons,
-	'priority'	=> 1,
-) );
+shoper_add_select( 'shoper_social_media', 'icon_2', 'refresh', __('Select Social Icon #2', 'shoper'), $social_icons, 20 );
+shoper_add_url( 'shoper_social_media', 'url_2', 'refresh', __('URL #2 (required)', 'shoper'), 1 );	
 
-$wp_customize->add_setting( 'shoper_social_url_window' , array(
-    'default'   => '',
-    'transport' => 'refresh',
-	//'type'		 => 'option',
-) );
+shoper_add_select( 'shoper_social_media', 'icon_3', 'refresh', __('Select Social Icon #3', 'shoper'), $social_icons, 30 );
+shoper_add_url( 'shoper_social_media', 'url_3', 'refresh', __('URL #3 (required)', 'shoper'), 1 );	
 
-
-
-$wp_customize->add_control( 'shoper_social_url_window', array(
-	'label'      => __('Url Social Links', 'shoper'),
-	'section'    => 'shoper_social_links',
-	//'settings'   => 'shoper_social_links_window',
-	'type'			=> 'text',
-	'priority'	=> 1,
-) );
-
-
-	
+shoper_add_select( 'shoper_social_media', 'icon_4', 'refresh', __('Select Social Icon #4', 'shoper'), $social_icons, 40 );
+shoper_add_url( 'shoper_social_media', 'url_4', 'refresh', __('URL #4 (required)', 'shoper'), 1 );	
 
 }
 add_action( 'customize_register', 'shoper_customize_register' );
+
+
 
 /**
  * Render the site title for the selective refresh partial.
@@ -174,3 +190,8 @@ function shoper_customize_preview_js() {
 	wp_enqueue_script( 'shoper-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), _S_VERSION, true );
 }
 add_action( 'customize_preview_init', 'shoper_customize_preview_js' );
+
+function shoper_panels_js() {
+	wp_enqueue_script( 'shoper-customize-controls', get_theme_file_uri( '/js/customizer.js' ), array(), '1.3', true );
+}
+add_action( 'customize_controls_enqueue_scripts', 'shoper_panels_js' );

@@ -23,7 +23,9 @@
 						?>
 					</div>
 					<div class="col-sm-6">
-						<a href="<?= 'shoper_social_url_window' ?>"><?= get_theme_mod( 'shoper_social_links_window' ); ?></a>
+						<!-- Block social media	 -->
+						<?php shoper_social_media( 'social-icons pull-right' ); ?>
+
 					</div>
 				</div>
 			</div>

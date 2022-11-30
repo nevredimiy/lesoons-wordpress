@@ -31,33 +31,3 @@ jQuery(document).ready(function($){
 
 //Add arrow down after the link text
 document.querySelectorAll('li.menu-item-has-children>a').forEach(item => item.innerHTML += '<i class="fa fa-angle-down"></i>');
-
-//Add enque icon before the text link
-// let icons = document.querySelectorAll(' a > i.fa ');
-
-// let icon = (addClass) => icons.forEach(item => {
-// 	item.classList.add(addClass);
-// });
-
-// let textContentLink = document.querySelectorAll('li[id*="menu-item"]>a').forEach(item => item.textContent);
-// switch(textContentLink) {
-// 	case "My account" :
-// 	icon("fa-user");
-	
-// 	case "Checkout" :
-// 	icon("fa-crosshairs");
-
-// 	case "Cart" :
-// 	icon("fa-shopping-cart");
-
-// 	case "About" :
-// 	icon("fa-star");
-
-// }
-
-
-
-
-
-
-
