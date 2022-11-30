@@ -243,30 +243,30 @@ if ( ! function_exists( 'shoper_social_media' ) ) {
 		<div class="<?php echo esc_attr( $social_class ); ?>">
 			<ul class="nav navbar-nav">
 				<?php if ( get_theme_mod( 'shoper_social_media_url_1' ) ) : ?>
-				<li>
+				<li id="shoper_social_media_1">
 					<a href="<?php echo esc_url( get_theme_mod( 'shoper_social_media_url_1' ) ); ?>">
-						<i class="<?php echo esc_attr( shoper_fix_social_media_icon( get_theme_mod( 'shoper_social_media_icon_1' ) ) ); ?>"></i>
+						<i class="<?php echo esc_attr( get_theme_mod( 'shoper_social_media_icon_1' ) ); ?>"></i>
 					</a>
 				</li>
 				<?php endif; ?>
 				<?php if ( get_theme_mod( 'shoper_social_media_url_2' ) ) : ?>
-				<li>
+				<li id="shoper_social_media_2">
 					<a href="<?php echo esc_url( get_theme_mod( 'shoper_social_media_url_2' ) ); ?>">
-						<i class="<?php echo esc_attr( shoper_fix_social_media_icon( get_theme_mod( 'shoper_social_media_icon_2' ) ) ); ?>"></i>
+						<i class="<?php echo esc_attr( get_theme_mod( 'shoper_social_media_icon_2' ) ); ?>"></i>
 					</a>
 				</li>
 				<?php endif; ?>
 				<?php if ( get_theme_mod( 'shoper_social_media_url_3' ) ) : ?>
-				<li>
+				<li id="shoper_social_media_3">
 					<a href="<?php echo esc_url( get_theme_mod( 'shoper_social_media_url_3' ) ); ?>">
-						<i class="<?php echo esc_attr( shoper_fix_social_media_icon( get_theme_mod( 'shoper_social_media_icon_3' ) ) ); ?>"></i>
+						<i class="<?php echo esc_attr( get_theme_mod( 'shoper_social_media_icon_3' ) ); ?>"></i>
 					</a>
 				</li>
 				<?php endif; ?>
 				<?php if ( get_theme_mod( 'shoper_social_media_url_4' ) ) : ?>
-				<li>
+				<li id="shoper_social_media_4">
 					<a href="<?php echo esc_url( get_theme_mod( 'shoper_social_media_url_4' ) ); ?>">
-						<i class="<?php echo esc_attr( shoper_fix_social_media_icon( get_theme_mod( 'shoper_social_media_icon_4' ) ) ); ?>"></i>
+						<i class="<?php echo esc_attr( get_theme_mod( 'shoper_social_media_icon_4' ) ); ?>"></i>
 					</a>
 				</li>
 				<?php endif; ?>
@@ -278,87 +278,3 @@ if ( ! function_exists( 'shoper_social_media' ) ) {
 	} // ashe_social_media()
 
 } // function_exists( 'ashe_social_media' )
-
-// Fix Social Media Icon
-function shoper_fix_social_media_icon( $icon ) {
-
-	switch ($icon) {
-		case 'facebook':
-			$icon_class = 'fa-brands fa-facebook-f';
-			break;
-		case 'facebook-official':
-			$icon_class = 'fa-brands fa-square-facebook';
-			break;
-		case 'facebook-square':
-			$icon_class = 'fa-brands fa-facebook';
-			break;
-		case 'linkedin':
-			$icon_class = 'fa-brands fa-linkedin-in';
-			break;
-		case 'linkedin-square':
-			$icon_class = 'fa-brands fa-linkedin';
-			break;
-		case 'film':
-			$icon_class = 'fa-solid fa-film';
-			break;
-		case 'youtube-play':
-			$icon_class = 'fa-brands fa-youtube';
-			break;
-		case 'youtube-square':
-			$icon_class = 'fa-brands fa-square-youtube';
-			break;
-		case 'info':
-			$icon_class = 'fa-solid fa-info';
-			break;
-		case 'info-circle':
-			$icon_class = 'fa-solid fa-circle-info';
-			break;
-		case 'rss':
-			$icon_class = 'fa-solid fa-rss';
-			break;
-		case 'rss-square':
-			$icon_class = 'fa-solid fa-square-rss';
-			break;
-		case 'heart':
-			$icon_class = 'fa-solid fa-heart';
-			break;
-		case 'heart-o':
-			$icon_class = 'fa-regular fa-heart';
-			break;
-		case 'gamepad':
-			$icon_class = 'fa-solid fa-gamepad';
-			break;
-		case 'map-marker':
-			$icon_class = 'fa-solid fa-location-dot';
-			break;
-		case 'envelope':
-			$icon_class = 'fa-solid fa-envelope';
-			break;
-		case 'envelope-o':
-			$icon_class = 'fa-regular fa-envelope';
-			break;
-		case 'envelope-square ':
-			$icon_class = 'fa-solid fa-square-envelope';
-			break;
-		case 'snapchat-square':
-			$icon_class = 'fa-brands fa-square-snapchat';
-			break;
-		case 'shopping-cart':
-			$icon_class = 'fa-solid fa-cart-shopping';
-			break;
-		case 'tiktok':
-			$icon_class = 'fa-brands fa-tiktok';
-			break;
-		case 'credit-card':
-			$icon_class = 'fa-regular fa-credit-card';
-			break;
-		
-		default:
-			$icon_class = 'fa-brands fa-'. $icon;
-			break;
-	}
-
-	return $icon_class;
-}
-
-

@@ -37,15 +37,70 @@
 					color: to,
 				} );
 			}
+		} )
+	});
+
+	//Update site social media in real time...
+	wp.customize( 'shoper_social_media_icon_1', function( value ) {
+		value.bind( function( newval ) {
+			console.log(newval);
+			$('#shoper_social_media_1 a i').removeClass().addClass( newval );
 		} );
 	} );
 
-	function shoper_customizer_label( id, title ) {
-			$( '#customize-control-shoper_'+ id ).before('<li class="tab-title customize-control">'+ title +'</li>');
-	}
+	//Update site social media in real time...
+	wp.customize( 'shoper_social_media_url_1', function( value ) {
+		value.bind( function( newval ) {
+			$('#shoper_social_media_1 a').attr( 'href', newval );
+		} );
+	} );
 
-	shoper_customizer_label( 'social_media_icon_1', 'Social Icon #1' );
-	shoper_customizer_label( 'social_media_icon_2', 'Social Icon #2' );
-	shoper_customizer_label( 'social_media_icon_3', 'Social Icon #3' );
-	shoper_customizer_label( 'social_media_icon_4', 'Social Icon #4' );
+
+
+	//Update site social media in real time...
+	wp.customize( 'shoper_social_media_icon_2', function( value ) {
+		value.bind( function( newval ) {
+			console.log(newval);
+			$('#shoper_social_media_2 a i').removeClass().addClass( newval );
+		} );
+	} );
+
+	//Update site social media in real time...
+	wp.customize( 'shoper_social_media_url_2', function( value ) {
+		value.bind( function( newval ) {
+			$('#shoper_social_media_2 a').attr( 'href', newval );
+		} );
+	} );
+
+
+	//Update site social media in real time...
+	wp.customize( 'shoper_social_media_icon_3', function( value ) {
+		value.bind( function( newval ) {
+			console.log(newval);
+			$('#shoper_social_media_3 a i').removeClass().addClass( newval );
+		} );
+	} );
+
+	//Update site social media in real time...
+	wp.customize( 'shoper_social_media_url_3', function( value ) {
+		value.bind( function( newval ) {
+			$('#shoper_social_media_3 a').attr( 'href', newval );
+		} );
+	} );
+
+	//Update site social media in real time...
+	wp.customize( 'shoper_social_media_icon_4', function( value ) {
+		value.bind( function( newval ) {
+			console.log(newval);
+			$('#shoper_social_media_4 a i').removeClass().addClass( newval );
+		} );
+	} );
+
+	//Update site social media in real time...
+	wp.customize( 'shoper_social_media_url_4', function( value ) {
+		value.bind( function( newval ) {
+			$('#shoper_social_media_4 a').attr( 'href', newval );
+		} );
+	} );
+
 }( jQuery ) );
