@@ -10,6 +10,12 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
+
+ $shoper_default = [
+	'shoper_social_media_icon_1' => '',
+ ];
+
+
 function shoper_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
@@ -105,26 +111,29 @@ $social_icons = array(
 	'credit-card' 			=> 'Credit Card',
 );
 
+function shoper_add_select( $section, $id, $transport, $name, $choices, $priority ) {
+	global wp_costomize();
+	
+	$wp_costomise->add_setting( $section . '_' . $id, array(
+		'default' => $shoper_default[$section . '_' . $id],
+		'transport' => $transport,
+	));
+
+	$wp_customize->add_control( $section . '_' . $id, array(
+		'label' => $name,
+		'section' => $section,
+		'priority' => 'select',
+		'type' => 'select',
+		'choices' => $choices
+	) );
+}
+$section = 'shoper_social_media';
+
+shoper_add_select( 'shoper_social_media', 'icon_1', 'refresh', __('Select Social Icon', 'shoper'), $social_icons, 1);
+
 $wp_customize->add_section( 'shoper_social_links' , array(
 	'title'      => __('Social Links', 'shoper'),
 	'priority'   => 9,
-) );
-
-$wp_customize->add_setting( 'shoper_social_links_window' , array(
-    'default'   => 'facebook',
-    'transport' => 'refresh',
-	//'type'		 => 'option',
-	//'capability' => 'edit_theme_options',
-	//'sanitize_callback' => 'ashe_sanitize_select'
-) );
-
-$wp_customize->add_control( 'shoper_social_links_window', array(
-	'label'     => __('Label Social Links', 'shoper'),
-	'section'   => 'shoper_social_links',
-	//'settings'  => 'shoper_social_links_window',
-	'type'		=> 'select',
-	'choices' 	=> $social_icons,
-	'priority'	=> 1,
 ) );
 
 $wp_customize->add_setting( 'shoper_social_url_window' , array(
