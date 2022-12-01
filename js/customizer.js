@@ -43,8 +43,12 @@
 	//Update site social media in real time...
 	wp.customize( 'shoper_social_media_icon_1', function( value ) {
 		value.bind( function( newval ) {
-			console.log(newval);
-			$('#shoper_social_media_1 a i').removeClass().addClass( newval );
+				$('#shoper_social_media_1 a i').removeClass().addClass( newval );
+				if (newval == 'no-class'){
+					$('#shoper_social_media_1').addClass('hide');
+				}else{					
+					$('#shoper_social_media_1').removeClass('hide');
+				}
 		} );
 	} );
 
@@ -55,15 +59,18 @@
 		} );
 	} );
 
-
-
 	//Update site social media in real time...
 	wp.customize( 'shoper_social_media_icon_2', function( value ) {
 		value.bind( function( newval ) {
-			console.log(newval);
-			$('#shoper_social_media_2 a i').removeClass().addClass( newval );
+				$('#shoper_social_media_2 a i').removeClass().addClass( newval );
+				if (newval == 'no-class'){
+					$('#shoper_social_media_2').addClass('hide');
+				}else{					
+					$('#shoper_social_media_2').removeClass('hide');
+				}
 		} );
 	} );
+
 
 	//Update site social media in real time...
 	wp.customize( 'shoper_social_media_url_2', function( value ) {
@@ -78,6 +85,11 @@
 		value.bind( function( newval ) {
 			console.log(newval);
 			$('#shoper_social_media_3 a i').removeClass().addClass( newval );
+			if (newval == 'no-class'){
+				$('#shoper_social_media_3').addClass('hide');
+			}else{					
+				$('#shoper_social_media_3').removeClass('hide');
+			}
 		} );
 	} );
 
@@ -93,10 +105,15 @@
 		value.bind( function( newval ) {
 			console.log(newval);
 			$('#shoper_social_media_4 a i').removeClass().addClass( newval );
+			if (newval == 'no-class'){
+				$('#shoper_social_media_4').addClass('hide');
+			}else{					
+				$('#shoper_social_media_4').removeClass('hide');
+			}
 		} );
 	} );
 
-	//Update site social media in real time...
+	
 	wp.customize( 'shoper_social_media_url_4', function( value ) {
 		value.bind( function( newval ) {
 			$('#shoper_social_media_4 a').attr( 'href', newval );

@@ -115,6 +115,7 @@ function shoper_customize_register( $wp_customize ) {
 // );
 
 $social_icons = array(
+	'no-class' 			=> '(Select icon)',
 	'fa-brands fa-facebook-f' 			=> 'Facebook 1',
 	'fa-brands fa-square-facebook'		=> 'Facebook 2',
 	'fa-brands fa-facebook' 			=> 'Facebook 3',
@@ -229,7 +230,7 @@ shoper_add_url( 'shoper_social_media', 'url_2', 'postMessage', __('URL #2 (requi
 shoper_add_select( 'shoper_social_media', 'icon_3', 'postMessage', __('Select Social Icon #3', 'shoper'), $social_icons, 30 );
 shoper_add_url( 'shoper_social_media', 'url_3', 'postMessage', __('URL #3 (required)', 'shoper'), 1 );	
 
-shoper_add_select( 'shoper_social_media', 'icon_4', 'postMessageh', __('Select Social Icon #4', 'shoper'), $social_icons, 40 );
+shoper_add_select( 'shoper_social_media', 'icon_4', 'postMessage', __('Select Social Icon #4', 'shoper'), $social_icons, 40 );
 shoper_add_url( 'shoper_social_media', 'url_4', 'postMessage', __('URL #4 (required)', 'shoper'), 1 );	
 
 }
